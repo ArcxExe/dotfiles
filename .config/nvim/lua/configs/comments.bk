@@ -1,0 +1,66 @@
+local luasnip = require("luasnip")
+
+-- Функция для получения символа комментария
+local function get_comment_prefix()
+  local lang = vim.bo.filetype
+  local comment_prefixes = {
+    lua = "--",
+    python = "#",
+    javascript = "//",
+    typescript = "//",
+    html = "<!--",
+    css = "/*",
+    rust = "//",
+    -- Добавьте другие языки по мере необходимости
+  }
+
+  return comment_prefixes[lang] or "#" -- Значение по умолчанию
+end
+
+-- Определение сниппетов
+local comment_snippets = {
+  luasnip.s("TODO", {
+    luasnip.function_node(get_comment_prefix), -- Динамическое получение префикса
+    luasnip.text_node(" TODO: "),
+    luasnip.insert_node(1, "description"),
+  }),
+  luasnip.s("WARNING", {
+    luasnip.function_node(get_comment_prefix), -- Динамическое получение префикса
+    luasnip.text_node(" WARNING: "),
+    luasnip.insert_node(1, "description"),
+  }),
+  luasnip.s("HACK", {
+    luasnip.function_node(get_comment_prefix), -- Динамическое получение префикса
+    luasnip.text_node(" HACK: "),
+    luasnip.insert_node(1, "description"),
+  }),
+  luasnip.s("FIX", {
+    luasnip.function_node(get_comment_prefix), -- Динамическое получение префикса
+    luasnip.text_node(" FIX: "),
+    luasnip.insert_node(1, "description"),
+  }),
+  luasnip.s("PERF", {
+    luasnip.function_node(get_comment_prefix), -- Динамическое получение префикса
+    luasnip.text_node(" OPTIM: "),
+    luasnip.insert_node(1, "description"),
+  }),
+  luasnip.s("NOTE", {
+    luasnip.function_node(get_comment_prefix), -- Динамическое получение префикса
+    luasnip.text_node(" NOTE: "),
+    luasnip.insert_node(1, "description"),
+  }),
+  luasnip.s("FAIL", {
+    luasnip.function_node(get_comment_prefix), -- Динамическое получение префикса
+    luasnip.text_node(" FAIL: "),
+    luasnip.insert_node(1, "description"),
+  }),
+  luasnip.s("TEST", {
+    luasnip.function_node(get_comment_prefix), -- Динамическое получение префикса
+    luasnip.text_node(" TEST: "),
+    luasnip.insert_node(1, "description"),
+  }),
+}
+
+-- Добавление сниппетов в luasnip
+luasnip.add_snippets("all", comment_snippets)
+

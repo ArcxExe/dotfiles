@@ -1,0 +1,32 @@
+decoration {
+    blur {
+        enabled = true
+        # vibrancy = 1
+        ignore_opacity = true #false
+        # vibrancy_darkness = 0.4
+        brightness = 2 # commenting
+        size = 3 #5
+        passes = 4 #1
+        new_optimizations=true
+        popups = true
+    }
+}
+
+windowrule=opacity 0.7 0.7,foot
+windowrulev2=opacity 0.87 0.87,class:(foot),title:(clock)
+
+windowrule=opacity 0.89 0.89,Chromium
+
+#firefox
+windowrule=opacity 0.87 0.87,firefox
+windowrule=opacity 0.72 0.72,title:(Monkeytype .*)$
+windowrule=float,firefox
+windowrulev2=opacity 0.72 0.72,class:(firefox)$,title:(Выгрузка файла)$
+windowrule=opacity 0.88 0.88,obsidian
+windowrule=opacity 0.79 0.79,Rofi
+windowrule=opacity 0.8 0.8,org.telegram.desktop
+
+windowrule=opacity 0.8 0.8,VK Messenger
+windowrule=move 1021 435,VK Messenger
+windowrule=size 390 600,VK Messenger
+windowrule=float,VK Messenger
