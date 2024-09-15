@@ -3,5 +3,5 @@ WM: Hyprland
 
 How install
 ```python
-python script_install
+python scrpint_install
 ```
